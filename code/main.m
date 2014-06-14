@@ -28,5 +28,5 @@ y = y ./ norm(y);
 param.iter = 5;
 param.s_0 = 0.5;
 matAlgCrit = AlgCrit(alg, crit, objects, features, param);
-%[Vif, k] = PlotVif_k(alg, objects, features, param);
+%[ Vif, k ] = PlotVif_k(alg, objects, features, param);
 %[ Stability, s0 ] = Plotd_s0(alg, objects, features, param);

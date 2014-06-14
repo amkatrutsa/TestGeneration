@@ -1,4 +1,4 @@
-function [ intIdxDelFeature ] = algBelsley( structParam, structData )
+function [ intIdxDelFeature ] = algBelsley(structParam, structData)
 % Find index the worst feature, the most collinear, through the Belsley algorithm 
 %
 % Input:

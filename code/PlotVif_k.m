@@ -1,4 +1,4 @@
-function [ matVif, k] = PlotVif_k( alg, objects, features, parameters )
+function [ matVif, k] = PlotVif_k(alg, objects, features, parameters)
 % Function computes VIF for different featureseoection methods and 
 % parameters multicollinerity, which changes from 0 to 0.97 
 %
@@ -21,7 +21,6 @@ function [ matVif, k] = PlotVif_k( alg, objects, features, parameters )
 %                              parameter multicollinearity 
 % k - [1, 97] - vector with parameters of multicollinearity  
 
-% addpath('./criteria');
 k = 0:0.01:0.97;
 matVif = zeros(length(alg), size(k, 2));
 for i = 1:length(alg)
@@ -33,13 +32,10 @@ for i = 1:length(alg)
         y = parameters.target;
         X = (X - repmat(mean(X), size(X, 1), 1)) ./ repmat(std(X), size(X, 1), 1);
         y = (y - mean(y)) / std(y);
-        W = zeros(size(X, 2), length(alg));
         X_sh = X;
         w = feval(alg{i}, X, y);
-        W(:, i) = w;
         idx_del = abs(w) < 10^(-6); % experienced cut off
         w(idx_del) = [];
-        W(idx_del, i) = 0;
         X_sh(:, idx_del) = [];
         par = [];
         matVif(i, j) = Vif(X_sh, y, w, par);

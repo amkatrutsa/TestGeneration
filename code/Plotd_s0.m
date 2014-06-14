@@ -1,4 +1,4 @@
-function [ mat_stability, s0 ] = Plotd_s0( alg, objects, features, parameters  )
+function [ mat_stability, s0 ] = Plotd_s0(alg, objects, features, parameters)
 % Function computes the values of the stability criteria for wide range critical error
 % 
 % Input:
@@ -27,23 +27,17 @@ mat_stability = zeros(length(alg), size(s0, 2));
 for i = 1:length(alg)
     fprintf('Alg %s\n', alg{i});
     for j = 1:size(s0, 2)
-        %fprintf('s0 = %d\n', s0(j));
         for k = 1:iter
             parameters.target = randi(1.5 * objects, objects, 1);
             X = CreateData(objects, features, parameters);
             y = parameters.target;
             len = sum(X.^2).^0.5;
-            X = X./repmat(len, size(X, 1), 1);
+            X = X ./ repmat(len, size(X, 1), 1);
             y = y ./ norm(y);
-            %X = (X - repmat(mean(X), size(X, 1), 1)) ./ repmat(std(X), size(X, 1), 1);
-            %y = (y - mean(y)) / std(y);
-            W = zeros(size(X, 2), length(alg));
             X_sh = X;
             w = feval(alg{i}, X, y);
-            % W(:, i) = w;
-            idx_del = abs(w) < 10^(-6); %experienced cut off
+            idx_del = abs(w) < 10^(-6); % experienced cut off
             w(idx_del) = [];
-            % W(idx_del, i) = 0;
             X_sh(:, idx_del) = [];
             par.s_0 = s0(j);
             mat_stability(i, j) = mat_stability(i, j) + stability(X_sh, y, w, par);
