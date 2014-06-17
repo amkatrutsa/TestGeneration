@@ -8,7 +8,7 @@ function [ kappa ] = CondNumber( X, y, w, par )
 % par - structure with additional parameters, in this case is empty
 %
 % Output:
-% kappa - [1,1] - conditional number for given design matrix
+% kappa - [1, 1] - conditional number for given design matrix
 
 if(isempty(X))
     kappa = Inf;

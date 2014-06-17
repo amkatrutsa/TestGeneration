@@ -1,4 +1,5 @@
-function [ matAlgCrit, learn_error, test_error, num_parameters ] = AlgCrit(alg, crit, objects, features, parameters)
+function [ matAlgCrit, learn_error, test_error, num_parameters ] = ...
+                        AlgCrit(alg, crit, objects, features, parameters)
 % Function computes values of every considered criteria for result
 % given every feature selection method
 %
