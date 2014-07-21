@@ -4,10 +4,10 @@ addpath('./feature_selection_methods')
 rng(0);
 numObjects = 1000;
 features.rand_features = 0;
-features.ortfeat_features = 10;
+features.ortfeat_features = 0;
 features.coltarget_features = 0;
-features.colfeat_features = 40;
-features.ortcol_features = 0;
+features.colfeat_features = 0;
+features.ortcol_features = 50;
 param.multpar = 0.2;
 param.target = randi(1.5 * numObjects, numObjects, 1);
 param.iter = 5;

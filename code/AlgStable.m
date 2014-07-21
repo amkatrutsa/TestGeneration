@@ -2,7 +2,7 @@ function [ TestError_logcond, TestError_numpar ] = AlgStable(alg, crit, ...
                                             objects, features, parameters)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
-k = 0:0.01:0.97;
+k = 0:0.05:0.97;
 TestError_logcond = zeros(2 * length(alg), length(k));
 TestError_numpar = zeros(2 * length(alg), length(k));
 for i = 1:length(k)
