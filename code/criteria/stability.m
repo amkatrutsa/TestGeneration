@@ -15,19 +15,16 @@ function [ d ] = stability( X, y, w, par )
 % d - [1,1] - maximum number of possibly deleting features
 
 if(isempty(X))
-    d = Inf;
+    d = -Inf;
     return
 end
 s_0 = par.s_0;
 idx_all_features = 1:max(size(w));
 d = 0;
 S = sumsqr(y - X * w);
-% X_new = X;
 while (S < s_0) && (size(idx_all_features, 2) > 1)
     idx_del = algBelsley(X, idx_all_features);
     idx_all_features(idx_all_features == idx_del) = [];
-%     X_new(:, idx_del) = [];
-%     w(idx_del) = [];
     d = d + 1;    
     S = sumsqr(y - X(:, idx_all_features) * w(idx_all_features));
 end
