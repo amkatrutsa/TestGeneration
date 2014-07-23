@@ -1,5 +1,6 @@
 function [ mat_stability, s0 ] = Plotd_s0(alg, objects, features, parameters)
-% Function computes the values of the stability criteria for wide range critical error
+% Function computes the values of the stability criteria for wide range 
+% critical error
 % 
 % Input:
 % alg - cell array with names of the algorithms to solve regression problem 
@@ -20,6 +21,8 @@ function [ mat_stability, s0 ] = Plotd_s0(alg, objects, features, parameters)
 %                                              for every feature selection method and every value of  
 %                                              critical error s_0
 % s_0 - [1, size(s0, 2)] - vector with values of critical error
+%
+% Copyright Alexandr Katrutsa (c) 05-06.2014
 
 s0 = 0.01:0.05:2;
 iter = parameters.iter;

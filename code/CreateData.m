@@ -14,12 +14,16 @@ function [ X ] = CreateData( m, features, par )
 %       ortcol_features - [1, 1] - number of features orthogonal 
 %                                  target vector and collinearing to each other
 % par - structure with fields:
-%       multpar - [1, 1] - parameter of multicollinearity, if multpar = 1, 
-%                          then all selected features are collinearing
+%       multpar - [1, 1] - parameter of multicollinearity, if multpar == 1, 
+%                          then all selected features are correlated, if
+%                          multpar == 0, then all selected features are 
+%                          orthogonal 
 %       target - [m, 1] - target vector
 %
 % Output:
 % X - [m, total_features] - matrix with test data set
+%
+% Copyright Alexandr Katrutsa (c), 05-06.2014
 
 random = features.rand_features;
 ortfeat = features.ortfeat_features;

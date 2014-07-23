@@ -22,7 +22,9 @@ function [ matAlgCrit, learn_error, test_error, num_parameters ] = ...
 % matAlgCrit - [length(alg), length(crit)] - matrix contain the values, 
 %                                            which are returned every criteria for 
 %                                            every feature selection method 
-                
+%
+% Copyright Alexandr Katrutsa (c) 05-06.2014
+
 iter = parameters.iter;
 matAlgCrit = zeros(length(alg), length(crit));
 learn_error = zeros(1, length(alg));

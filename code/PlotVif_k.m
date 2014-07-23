@@ -20,6 +20,8 @@ function [ matVif, k] = PlotVif_k(alg, objects, features, parameters)
 % matVif - [length(alg), 97] - matrix with VIF for every feature selection method and 
 %                              parameter multicollinearity 
 % k - [1, 97] - vector with parameters of multicollinearity  
+%
+% Copyright Alexandr Katrutsa (c) 05-06.2014
 
 k = 0:0.01:0.97;
 matVif = zeros(length(alg), size(k, 2));
