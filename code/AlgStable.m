@@ -1,7 +1,34 @@
 function [ TestError_logcond, TestError_numpar ] = AlgStable(alg, crit, ...
                                             objects, features, parameters)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Function returns the pair test error, logarithm of the condition number and 
+% the pair test error, number of the selected features for every FSM and 
+% values of the multicollinearity parameter from 0 to 0.97 with step 0.05
+%
+% Input:
+% alg - cell array with names of the algorithms to solve regression problem 
+%                using feature selection for given design matrix X and target vector y
+% crit - cell array with name of criterias using to test feature selection methods from alg
+% objects - [1, 1] - number of the objects in generated data set, 
+%                    the number of rows in the matrix X
+% features - [1, 1] - number of features in generated data set,
+%                     the number of columns in the matrix X,
+%                     the dimension of the data
+% parameters - structure with following parameters:
+%              multpar - [1, 1] - parameter of the multicollinearity, 
+%                                 if it equals 1, the data is full correlated
+%              target - [objects, 1] - the target vector   
+%              iter - [1, 1] - number of iteration for average matrix matAlgCrit
+%
+% Output:
+% TestError_logcond - [2 * length(alg), length(k)] - matrix with test errors 
+%                       and logarithm of the conditional numbers for every FSM
+%                       and every value of k.
+% TestError_numpar - [2 * length(alg), length(k)] - matrix with test errors 
+%                       and number of the selected parameters for every FSM
+%                       and every value of k.
+%
+% Copyright Alexandr Katrutsa (c) 05-06.2014
+
 k = 0:0.05:0.97;
 TestError_logcond = zeros(2 * length(alg), length(k));
 TestError_numpar = zeros(2 * length(alg), length(k));
@@ -25,4 +52,3 @@ for i = 1:length(k)
     end
 end
 end
-
