@@ -13,6 +13,8 @@ function [ idxFSM ] = IdxBestFSM( X, y, crit, alg, param )
 % Output:
 % idxFSM - [1, 1] - index of the best FSM from the list alg according to
 % the criterion crit
+%
+% Copyright Alexandr Katrutsa (c) 07.2014
 
 crit_res = zeros(1, length(alg));
 for i = 1:length(alg)

@@ -1,4 +1,5 @@
-function [ X, y ] = GenerateTrainData( criterion, numSets, numObj, numFeat, par, alg)
+function [ X, y ] = GenerateTrainData( criterion, numSets, numObj, numFeat, ...
+                                        par, alg)
 % Function generates data set and target vector to learn the classification
 % algorithm to forecast the best FSM using the corresponding data set 
 % 
@@ -17,6 +18,8 @@ function [ X, y ] = GenerateTrainData( criterion, numSets, numObj, numFeat, par,
 % X - [3 * numSets, numObj * numFeat] - learn data set
 % y - [3 * numSets, 1] - vector with indices of the best FSM 
 %                       for every generated data set
+%
+% Copyright Alexandr Katrutsa (c) 07.2014
 
 X = zeros((3 * numSets), numObj * numFeat);
 y = zeros((3 * numSets), 1);
